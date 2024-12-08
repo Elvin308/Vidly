@@ -3,64 +3,55 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Vidly.Models; // Add this manually
+using Vidly.Models;
+using Vidly.ViewModels; // Add this manually
 
 namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
-        // GET: Movies/Random
+        // GET: movies/Random
         public ActionResult Random()
         {
             var movie = new Movie() { Name = "Shrek!" };
-            return View(movie);
-        }
 
-        // GET: Movies/Edit/id
-        public ActionResult Edit(int id)
-        {
-            return Content("id = " + id);
-        }
-
-        // GET: Movies{?{pageIndex}&{sortBy}}
-        public ActionResult Index(int? pageIndex, string sortBy)
-        {
-            if (!pageIndex.HasValue)
+            var customers = new List<Customer>
             {
-                pageIndex = 1;
-            }
+                new Customer {Name = "Customer 1"},
+                new Customer {Name = "Customer 2"}
+            };
 
-            if (String.IsNullOrWhiteSpace(sortBy))
+            var viewModel = new RandomMovieViewModel
             {
-                sortBy = "name";
-            }
+                Movie = movie,
+                Customers = customers
+            };
 
-            return Content(String.Format("pageIndex={0}&sortBy={1}", pageIndex, sortBy));
-
+            return View(viewModel);
         }
 
-        // GET: Movies/Hello
-        public ActionResult Hello() 
+
+        [Route("movies/released/{year:regex(\\d{4}):range(1990,2024)}/{month:regex(\\d{2}):range(1,12)}")]
+        public ActionResult ByReleaseDate(int year, int month)
         {
-            return Content("Hello World");
+            return Content(year + "/" + month);
+        }
+        
+        public ViewResult Index()
+        {
+            var movies = GetMovies();
+            return View(movies);
         }
 
-        // GET: Movies/redirectAction
-        public ActionResult RedirectAction()
+        //Hardcoded until database created
+        private IEnumerable<Movie> GetMovies()
         {
-            return RedirectToAction("Index", "Home", new {page = 1, sortBy = "name"});
+            return new List<Movie>()
+            {
+                new Movie { Id = 1, Name ="Shrek!"},
+                new Movie { Id = 2, Name = "Wall-e" }
+            };
         }
 
-        // GET: Movies/NotFound
-        public ActionResult NotFound()
-        {
-            return HttpNotFound();
-        }
-
-        // GET: Movies/Empty
-        public ActionResult Empty()
-        {
-            return new EmptyResult();
-        }
     }
 }
