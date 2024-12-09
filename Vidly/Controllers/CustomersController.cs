@@ -29,10 +29,10 @@ namespace Vidly.Controllers
         }
 
 
-        [Route("movies/customers/Details/{index}")]
+        [Route("customers/details/{index}")]
         public ActionResult Details(int index)
         {
-            var specificCustomer = _context.Customers.Where(x => x.Id == index).FirstOrDefault();
+            var specificCustomer = _context.Customers.Include(x => x.MembershipType).Where(x => x.Id == index).FirstOrDefault();
 
             return View(specificCustomer);
         }

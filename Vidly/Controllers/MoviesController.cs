@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Ajax.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,18 @@ namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
-        // GET: movies/Random
+        private VidlyContext _context;
+
+        public MoviesController()
+        {
+            _context = new VidlyContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         public ActionResult Random()
         {
             var movie = new Movie() { Name = "Shrek!" };
@@ -39,19 +51,14 @@ namespace Vidly.Controllers
         
         public ViewResult Index()
         {
-            var movies = GetMovies();
+            var movies = _context.Movies;
             return View(movies);
         }
 
-        //Hardcoded until database created
-        private IEnumerable<Movie> GetMovies()
+        public ActionResult Details(int id)
         {
-            return new List<Movie>()
-            {
-                new Movie { Id = 1, Name ="Shrek!"},
-                new Movie { Id = 2, Name = "Wall-e" }
-            };
+            var movie = _context.Movies.Where(x  => x.Id == id).FirstOrDefault();
+            return View(movie);
         }
-
     }
 }

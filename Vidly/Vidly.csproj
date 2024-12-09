@@ -144,6 +144,30 @@
     <Compile Include="Migrations\202412090202033_ApplyAnnotationsToCustomerName.Designer.cs">
       <DependentUpon>202412090202033_ApplyAnnotationsToCustomerName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202412090351320_AddMembershipTypeName.cs" />
+    <Compile Include="Migrations\202412090351320_AddMembershipTypeName.Designer.cs">
+      <DependentUpon>202412090351320_AddMembershipTypeName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412090358490_ApplyAnnotationsToMembershipName.cs" />
+    <Compile Include="Migrations\202412090358490_ApplyAnnotationsToMembershipName.Designer.cs">
+      <DependentUpon>202412090358490_ApplyAnnotationsToMembershipName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412090404133_AddCustomerBirthday.cs" />
+    <Compile Include="Migrations\202412090404133_AddCustomerBirthday.Designer.cs">
+      <DependentUpon>202412090404133_AddCustomerBirthday.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412090422490_ModifyBirthdayToNullable.cs" />
+    <Compile Include="Migrations\202412090422490_ModifyBirthdayToNullable.Designer.cs">
+      <DependentUpon>202412090422490_ModifyBirthdayToNullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412090428504_AddGenre.cs" />
+    <Compile Include="Migrations\202412090428504_AddGenre.Designer.cs">
+      <DependentUpon>202412090428504_AddGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412090441546_AddReleaseDate_DateAdded_Stock.cs" />
+    <Compile Include="Migrations\202412090441546_AddReleaseDate_DateAdded_Stock.Designer.cs">
+      <DependentUpon>202412090441546_AddReleaseDate_DateAdded_Stock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -209,6 +233,7 @@
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -255,6 +280,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202412090202033_ApplyAnnotationsToCustomerName.resx">
       <DependentUpon>202412090202033_ApplyAnnotationsToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412090351320_AddMembershipTypeName.resx">
+      <DependentUpon>202412090351320_AddMembershipTypeName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412090358490_ApplyAnnotationsToMembershipName.resx">
+      <DependentUpon>202412090358490_ApplyAnnotationsToMembershipName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412090404133_AddCustomerBirthday.resx">
+      <DependentUpon>202412090404133_AddCustomerBirthday.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412090422490_ModifyBirthdayToNullable.resx">
+      <DependentUpon>202412090422490_ModifyBirthdayToNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412090428504_AddGenre.resx">
+      <DependentUpon>202412090428504_AddGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412090441546_AddReleaseDate_DateAdded_Stock.resx">
+      <DependentUpon>202412090441546_AddReleaseDate_DateAdded_Stock.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
