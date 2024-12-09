@@ -28,6 +28,11 @@ namespace Vidly.Controllers
             return View(customers);
         }
 
+        public ActionResult New()
+        {
+            return View();
+        }
+
 
         [Route("customers/details/{index}")]
         public ActionResult Details(int index)
