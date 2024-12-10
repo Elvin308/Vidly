@@ -33,6 +33,7 @@ namespace Vidly.Controllers
         {
             var viewModel = new CustomerFormViewModel
             {
+                Customer = new Customer(),
                 MembershipTypes = _context.MembershipTypes.ToList()
             };
 
@@ -43,7 +44,8 @@ namespace Vidly.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
-            if (!ModelState.IsValid) //Checkl if the customer class rules are being kept
+            //Check validations defined in the form and class, if invalid then redirect with error messages
+            if (!ModelState.IsValid)
             {
                 var viewModel = new CustomerFormViewModel
                 {
