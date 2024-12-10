@@ -29,6 +29,7 @@
     <div class="form-group">
         @Html.LabelFor(x => x.Customer.Birthday)
         @Html.TextBoxFor(x => x.Customer.Birthday, "{0:MM/dd/yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Customer.Birthday)
     </div>
 
 
@@ -48,6 +49,7 @@
 
     <p></p>
     @Html.HiddenFor(x => x.Customer.Id)
+    @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">Save</button>
 
 }
