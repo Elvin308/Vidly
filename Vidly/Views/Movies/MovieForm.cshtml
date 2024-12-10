@@ -6,7 +6,7 @@
 }
 
 @{
-    if (Model.Movie == null)
+    if (Model.Movie == null || String.IsNullOrWhiteSpace(Model.Movie.Name))
     {
         <h2>New Movie</h2>
     }
