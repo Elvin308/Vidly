@@ -5,7 +5,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>New Customer</h2>
+
+@{
+    if (Model.Customer == null)
+    {
+        <h2>New Customer</h2>
+    }
+    else
+    {
+        <h2>@Model.Customer.Name</h2>
+    }
+}
 
 @using (Html.BeginForm("Save", "Customers"))
 {
@@ -17,7 +27,7 @@
     <p></p>
     <div class="form-group">
         @Html.LabelFor(x => x.Customer.Birthday)
-        @Html.TextBoxFor(x => x.Customer.Birthday, "{0:d MM yyyy}", new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.Customer.Birthday, "{0:MM/dd/yyyy}", new { @class = "form-control" })
     </div>
 
 

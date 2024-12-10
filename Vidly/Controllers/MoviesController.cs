@@ -5,7 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
-using Vidly.ViewModels; // Add this manually
+using Vidly.ViewModels;
+using System.Data.Entity;
 
 namespace Vidly.Controllers
 {
@@ -51,7 +52,7 @@ namespace Vidly.Controllers
         
         public ViewResult Index()
         {
-            var movies = _context.Movies;
+            var movies = _context.Movies.Include(x => x.Genre).ToList();
             return View(movies);
         }
 
@@ -60,5 +61,55 @@ namespace Vidly.Controllers
             var movie = _context.Movies.Where(x  => x.Id == id).FirstOrDefault();
             return View(movie);
         }
+
+        public ActionResult New()
+        {
+            var viewModel = new MoviesFormViewModel
+            {
+                Genre = _context.Genres.ToList()
+            };
+
+            return View("MovieForm", viewModel);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var movie = _context.Movies.FirstOrDefault(x => x.Id == id);
+
+            if (movie == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                var viewModel = new MoviesFormViewModel
+                {
+                    Movie = movie,
+                    Genre = _context.Genres.ToList()
+                };
+                return View("MovieForm", viewModel);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Save(Movie movie)
+        {
+            if(movie.Id == 0)
+            {
+                _context.Movies.Add(movie);
+            }
+            else
+            {
+                var movieInDb = _context.Movies.First(x => x.Id == movie.Id);
+                movieInDb.Name = movie.Name;
+                movieInDb.ReleaseDate = movie.ReleaseDate;
+                movieInDb.GenreId = movie.GenreId;
+                movieInDb.Stock = movie.Stock;
+            }
+
+            _context.SaveChanges();
+            return RedirectToAction("Index","Movies");
+        }
+
     }
 }

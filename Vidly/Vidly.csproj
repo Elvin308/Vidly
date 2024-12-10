@@ -160,21 +160,43 @@
     <Compile Include="Migrations\202412090422490_ModifyBirthdayToNullable.Designer.cs">
       <DependentUpon>202412090422490_ModifyBirthdayToNullable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202412090428504_AddGenre.cs" />
-    <Compile Include="Migrations\202412090428504_AddGenre.Designer.cs">
-      <DependentUpon>202412090428504_AddGenre.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202412090441546_AddReleaseDate_DateAdded_Stock.cs" />
     <Compile Include="Migrations\202412090441546_AddReleaseDate_DateAdded_Stock.Designer.cs">
       <DependentUpon>202412090441546_AddReleaseDate_DateAdded_Stock.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202412100250204_AddGenre.cs" />
+    <Compile Include="Migrations\202412100250204_AddGenre.Designer.cs">
+      <DependentUpon>202412100250204_AddGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412100251498_AddGenreToDbSet.cs" />
+    <Compile Include="Migrations\202412100251498_AddGenreToDbSet.Designer.cs">
+      <DependentUpon>202412100251498_AddGenreToDbSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412100256507_AddGenreToMovie.cs" />
+    <Compile Include="Migrations\202412100256507_AddGenreToMovie.Designer.cs">
+      <DependentUpon>202412100256507_AddGenreToMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412100346056_ModifyGenre.cs" />
+    <Compile Include="Migrations\202412100346056_ModifyGenre.Designer.cs">
+      <DependentUpon>202412100346056_ModifyGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412100416245_AddRequiredGenreId.cs" />
+    <Compile Include="Migrations\202412100416245_AddRequiredGenreId.Designer.cs">
+      <DependentUpon>202412100416245_AddRequiredGenreId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412100419336_RemovedRequired.cs" />
+    <Compile Include="Migrations\202412100419336_RemovedRequired.Designer.cs">
+      <DependentUpon>202412100419336_RemovedRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\VidlyContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
+    <Compile Include="ViewModels\MoviesFormViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -236,6 +258,7 @@
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
+    <Content Include="Views\Movies\MovieForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -295,11 +318,26 @@
     <EmbeddedResource Include="Migrations\202412090422490_ModifyBirthdayToNullable.resx">
       <DependentUpon>202412090422490_ModifyBirthdayToNullable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202412090428504_AddGenre.resx">
-      <DependentUpon>202412090428504_AddGenre.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202412090441546_AddReleaseDate_DateAdded_Stock.resx">
       <DependentUpon>202412090441546_AddReleaseDate_DateAdded_Stock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412100250204_AddGenre.resx">
+      <DependentUpon>202412100250204_AddGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412100251498_AddGenreToDbSet.resx">
+      <DependentUpon>202412100251498_AddGenreToDbSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412100256507_AddGenreToMovie.resx">
+      <DependentUpon>202412100256507_AddGenreToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412100346056_ModifyGenre.resx">
+      <DependentUpon>202412100346056_ModifyGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412100416245_AddRequiredGenreId.resx">
+      <DependentUpon>202412100416245_AddRequiredGenreId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412100419336_RemovedRequired.resx">
+      <DependentUpon>202412100419336_RemovedRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
