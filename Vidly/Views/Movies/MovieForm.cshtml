@@ -51,3 +51,13 @@
     @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">Save</button>
 }
+
+
+@*
+ The below changes the validation from server side validation to client side validation   
+*@
+@section
+scripts
+{
+    @Scripts.Render("~/ bundles / jqueryval")
+}
